@@ -1,15 +1,18 @@
 name: 刷步数
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: 30 10 * * *
+    - cron: 0 10 * * *
   watch:
     types: started
 
-	@@ -16,24 +16,17 @@ jobs:
+jobs:
+  build:
+    runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
